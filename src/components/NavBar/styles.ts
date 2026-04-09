@@ -69,17 +69,20 @@ export const NavLinks = styled.nav`
   }
 `
 
-export const NavAnchor = styled.a`
+export const NavAnchor = styled.a<{ $active?: boolean }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 40px;
   padding: 0.7rem 0.9rem;
   border-radius: 999px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme, $active }) =>
+    $active ? theme.colors.text.primary : theme.colors.text.secondary};
   font-size: 0.92rem;
   font-weight: 600;
   white-space: nowrap;
+  background: ${({ $active }) =>
+    $active ? 'rgba(255, 255, 255, 0.05)' : 'transparent'};
 
   &:hover,
   &:focus-visible {

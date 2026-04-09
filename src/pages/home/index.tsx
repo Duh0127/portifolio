@@ -184,11 +184,11 @@ export default function Home() {
               </PrimaryAction>
 
               <SecondaryAction
-                href="/#stacks"
+                href="/projects"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Ver stack e soft skills
+                Ver projetos publicados
               </SecondaryAction>
             </HeroActions>
 
@@ -228,7 +228,9 @@ export default function Home() {
                     <HeroPortraitName>Eduardo Okubo</HeroPortraitName>
                     <HeroPortraitRole>Full Stack Developer / backend-first</HeroPortraitRole>
                   </div>
-                  <HeroPortraitBadge>Disponível para projetos</HeroPortraitBadge>
+                  <HeroPortraitBadge>
+                    <span>Disponível para projetos</span>
+                  </HeroPortraitBadge>
                 </HeroPortraitMeta>
               </HeroPortraitFrame>
             </HeroPortraitCard>

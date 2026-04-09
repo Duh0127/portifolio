@@ -1,4 +1,5 @@
 import { useReducedMotion } from 'motion/react'
+import { useLocation } from 'react-router-dom'
 
 import {
   Brand,
@@ -14,6 +15,7 @@ import {
 
 const navigationItems = [
   { label: 'Perfil', href: '/#sobre' },
+  { label: 'Projetos', href: '/projects' },
   { label: 'Stack', href: '/#stacks' },
   { label: 'Soft Skills', href: '/#soft-skills' },
   { label: 'Contato', href: '/#contato' },
@@ -21,6 +23,7 @@ const navigationItems = [
 
 const NavBar = () => {
   const prefersReducedMotion = useReducedMotion() ?? false
+  const location = useLocation()
 
   return (
     <HeaderContainer>
@@ -39,7 +42,14 @@ const NavBar = () => {
 
           <NavLinks aria-label="Navegação principal">
             {navigationItems.map((item) => (
-              <NavAnchor key={item.label} href={item.href}>
+              <NavAnchor
+                key={item.label}
+                href={item.href}
+                $active={
+                  item.href === '/projects' &&
+                  location.pathname.startsWith('/projects')
+                }
+              >
                 {item.label}
               </NavAnchor>
             ))}

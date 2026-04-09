@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 const panelSurface = css`
   border: 1px solid ${({ theme }) => theme.colors.border.primary};
@@ -24,6 +24,16 @@ const actionBase = css`
   padding: 0.9rem 1.2rem;
   border-radius: 999px;
   font-weight: 700;
+`
+
+const orbitBorder = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 `
 
 export const Page = styled.div`
@@ -264,18 +274,66 @@ export const HeroPortraitRole = styled.p`
 `
 
 export const HeroPortraitBadge = styled.span`
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(131, 154, 201, 0.16);
+  display: inline-block;
+  position: relative;
   border-radius: 999px;
-  background: rgba(8, 11, 18, 0.72);
-  color: ${({ theme }) => theme.colors.text.muted};
-  font-family: ${({ theme }) => theme.fonts.mono};
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1px;
+  background: rgba(3, 6, 12, 0.92);
+  box-shadow:
+    0 14px 30px rgba(6, 10, 18, 0.5),
+    0 0 24px rgba(75, 124, 219, 0.18);
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -140%;
+    z-index: -2;
+    background: conic-gradient(
+      from 180deg,
+      rgba(80, 135, 255, 0) 0deg,
+      rgba(80, 135, 255, 0.16) 56deg,
+      rgba(132, 190, 255, 0.9) 112deg,
+      rgba(80, 135, 255, 0.22) 164deg,
+      rgba(80, 135, 255, 0) 220deg,
+      rgba(80, 135, 255, 0) 360deg
+    );
+    animation: ${orbitBorder} 5s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(7, 11, 19, 0.96) 0%,
+      rgba(2, 5, 11, 0.98) 100%
+    );
+    box-shadow: inset 0 1px 0 rgba(165, 203, 255, 0.08);
+  }
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0.7rem 1.15rem;
+    position: relative;
+    z-index: 1;
+    color: #eef4ff;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    font-family: ${({ theme }) => theme.fonts.mono};
+  }
 `
 
 export const HeroPanel = styled(motion.article)`
@@ -367,7 +425,7 @@ export const SectionInner = styled.div`
   margin: 0 auto;
 `
 
-export const SectionHeading = styled(motion.div)<{ $align?: 'left' | 'center' }>`
+export const SectionHeading = styled(motion.div) <{ $align?: 'left' | 'center' }>`
   max-width: 42rem;
   margin-bottom: 2rem;
   text-align: ${({ $align = 'left' }) => $align};
