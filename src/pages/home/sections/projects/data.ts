@@ -34,6 +34,7 @@ export const projects: ProjectEntry[] = [
       'Modularização',
       'Autenticação',
       'Relacionamentos',
+      'SOLID',
     ],
   },
   {

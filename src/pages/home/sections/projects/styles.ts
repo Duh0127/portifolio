@@ -233,6 +233,18 @@ export const SectionInner = styled.div`
   margin: 0 auto;
 `
 
+export const ProjectsIntroLayout = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  margin-bottom: 2.5rem;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+`
+
 export const SectionHeading = styled(motion.div)`
   max-width: 43rem;
   margin-bottom: 2rem;

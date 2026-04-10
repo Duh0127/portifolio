@@ -15,7 +15,7 @@ import {
 
 const navigationItems = [
   { label: 'Perfil', href: '/#sobre' },
-  { label: 'Projetos', href: '/projects' },
+  { label: 'Projetos', href: '/#projetos' },
   { label: 'Stack', href: '/#stacks' },
   { label: 'Soft Skills', href: '/#soft-skills' },
   { label: 'Contato', href: '/#contato' },
@@ -24,6 +24,7 @@ const navigationItems = [
 const NavBar = () => {
   const prefersReducedMotion = useReducedMotion() ?? false
   const location = useLocation()
+  const currentSectionHref = location.hash ? `/${location.hash}` : ''
 
   return (
     <HeaderContainer>
@@ -45,10 +46,7 @@ const NavBar = () => {
               <NavAnchor
                 key={item.label}
                 href={item.href}
-                $active={
-                  item.href === '/projects' &&
-                  location.pathname.startsWith('/projects')
-                }
+                $active={location.pathname === '/' && item.href === currentSectionHref}
               >
                 {item.label}
               </NavAnchor>
