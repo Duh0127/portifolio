@@ -2,16 +2,17 @@ import { motion } from 'motion/react'
 import styled, { css } from 'styled-components'
 
 const panelSurface = css`
-  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  border: 1px solid rgba(144, 171, 222, 0.16);
   background:
     linear-gradient(
       180deg,
-      rgba(12, 16, 25, 0.9) 0%,
-      rgba(8, 11, 18, 0.9) 100%
+      rgba(13, 18, 29, 0.92) 0%,
+      rgba(7, 10, 18, 0.9) 100%
     );
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 24px 70px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -24px 48px rgba(1, 5, 12, 0.16);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 `
@@ -20,10 +21,12 @@ const actionBase = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0.9rem 1.2rem;
+  gap: 0.55rem;
+  min-height: 52px;
+  padding: 0.92rem 1.28rem;
   border-radius: 999px;
   font-weight: 700;
+  letter-spacing: -0.01em;
 `
 
 export const Page = styled.div`
@@ -127,30 +130,42 @@ export const HeroLead = styled.p`
 
 export const HeroBody = styled.p`
   max-width: 57ch;
-  margin-top: 1rem;
+  margin-top: 1.05rem;
   color: ${({ theme }) => theme.colors.text.muted};
   font-size: 0.98rem;
-  line-height: 1.82;
+  line-height: 1.78;
 `
 
 export const HeroActions = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 2rem;
+  gap: 0.95rem;
+  margin-top: 2.15rem;
 `
 
 export const PrimaryAction = styled(motion.a)`
   ${actionBase}
-  background: ${({ theme }) => theme.colors.text.primary};
+  background:
+    linear-gradient(
+      135deg,
+      rgba(241, 246, 255, 0.98) 0%,
+      rgba(170, 197, 248, 0.96) 100%
+    );
   color: ${({ theme }) => theme.colors.text.inverse};
-  box-shadow: 0 12px 36px rgba(9, 12, 18, 0.24);
+  box-shadow:
+    0 18px 38px rgba(77, 109, 177, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.52);
 `
 
 export const SecondaryAction = styled(motion.a)`
   ${actionBase}
-  border: 1px solid ${({ theme }) => theme.colors.border.primary};
-  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(148, 176, 233, 0.16);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
   color: ${({ theme }) => theme.colors.text.primary};
 `
 
@@ -165,15 +180,15 @@ export const HeroAside = styled(motion.aside)`
 
 export const OverviewCard = styled(motion.article)`
   ${panelSurface}
-  border-radius: 28px;
-  padding: 1.5rem;
+  border-radius: 30px;
+  padding: 1.55rem;
 `
 
 export const OverviewTitle = styled.h2`
   max-width: 16ch;
-  margin-top: 0.95rem;
-  font-size: clamp(1.7rem, 3vw, 2.25rem);
-  line-height: 1.06;
+  margin-top: 1rem;
+  font-size: clamp(1.72rem, 3vw, 2.2rem);
+  line-height: 1.08;
   letter-spacing: -0.04em;
 `
 
@@ -192,7 +207,7 @@ export const OverviewList = styled.div`
 export const OverviewItem = styled(motion.article)`
   display: grid;
   gap: 0.45rem;
-  padding: 1rem 0;
+  padding: 1.05rem 0;
   border-bottom: 1px solid rgba(131, 154, 201, 0.1);
 
   &:first-child {
@@ -225,7 +240,7 @@ export const OverviewItemText = styled.p`
 `
 
 export const Section = styled.section`
-  padding: 0 0 6.25rem;
+  padding: 0 0 clamp(5.25rem, 8vw, 7.5rem);
 `
 
 export const SectionInner = styled.div`
@@ -238,7 +253,7 @@ export const ProjectsIntroLayout = styled.div`
   grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: start;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
@@ -251,17 +266,25 @@ export const SectionHeading = styled(motion.div)`
 `
 
 export const SectionEyebrow = styled.p`
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 2rem;
+  padding: 0.38rem 0.78rem;
+  border: 1px solid rgba(148, 176, 233, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.024);
   color: ${({ theme }) => theme.colors.text.muted};
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 `
 
 export const SectionTitle = styled.h2`
-  margin-top: 0.95rem;
-  font-size: clamp(2rem, 4.7vw, 3.4rem);
-  line-height: 1.04;
+  margin-top: 1.05rem;
+  font-size: clamp(2rem, 4.7vw, 3.28rem);
+  line-height: 1.05;
   letter-spacing: -0.05em;
   text-wrap: balance;
 `
@@ -275,7 +298,7 @@ export const SectionDescription = styled.p`
 
 export const ProjectSurface = styled.div`
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
 `
 
 export const ProjectCard = styled(motion.article)<{ $reverse?: boolean }>`
@@ -284,8 +307,8 @@ export const ProjectCard = styled(motion.article)<{ $reverse?: boolean }>`
   display: grid;
   grid-template-columns: minmax(250px, 0.34fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 3vw, 2.3rem);
-  border-radius: 32px;
-  padding: clamp(1.2rem, 2.6vw, 1.8rem);
+  border-radius: 34px;
+  padding: clamp(1.35rem, 2.8vw, 2rem);
 
   &::before {
     content: '';
@@ -324,7 +347,7 @@ export const ProjectCard = styled(motion.article)<{ $reverse?: boolean }>`
 export const ProjectRail = styled.div<{ $reverse?: boolean }>`
   display: grid;
   align-content: start;
-  gap: 1rem;
+  gap: 1.1rem;
   padding: 0.35rem 0;
   border-right: 1px solid rgba(131, 154, 201, 0.1);
   padding-right: clamp(1.3rem, 2vw, 1.8rem);
@@ -362,8 +385,12 @@ export const ProjectTag = styled.span`
   min-height: 34px;
   padding: 0.45rem 0.7rem;
   border-radius: 999px;
-  border: 1px solid rgba(131, 154, 201, 0.15);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(131, 154, 201, 0.18);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
   color: ${({ theme }) => theme.colors.text.secondary};
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 0.76rem;
@@ -372,6 +399,10 @@ export const ProjectTag = styled.span`
 `
 
 export const ProjectOfficialText = styled.p`
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(131, 154, 201, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.95rem;
   line-height: 1.8;
@@ -386,11 +417,15 @@ export const ProjectLink = styled(motion.a)`
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  min-height: 42px;
-  padding: 0.72rem 0.95rem;
+  min-height: 44px;
+  padding: 0.76rem 1rem;
   border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.colors.border.primary};
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(131, 154, 201, 0.18);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: 0.9rem;
   font-weight: 700;
@@ -398,7 +433,7 @@ export const ProjectLink = styled(motion.a)`
 
 export const ProjectMain = styled.div<{ $reverse?: boolean }>`
   display: grid;
-  gap: 1.5rem;
+  gap: 1.65rem;
   padding-top: 0.15rem;
 
   ${({ $reverse }) =>
@@ -409,8 +444,8 @@ export const ProjectMain = styled.div<{ $reverse?: boolean }>`
 `
 
 export const ProjectName = styled.h3`
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  line-height: 1.02;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.05;
   letter-spacing: -0.05em;
 `
 
@@ -424,7 +459,7 @@ export const ProjectSummary = styled.p`
 export const ProjectHighlights = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1rem;
 
   @media (max-width: 820px) {
     grid-template-columns: 1fr;
@@ -434,8 +469,10 @@ export const ProjectHighlights = styled.div`
 export const ProjectColumn = styled.div`
   display: grid;
   gap: 0.7rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(131, 154, 201, 0.1);
+  padding: 1.15rem 1rem;
+  border: 1px solid rgba(131, 154, 201, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.028);
 `
 
 export const ProjectColumnLabel = styled.p`
@@ -465,8 +502,10 @@ export const ProjectBullet = styled.li`
 export const BadgeGroup = styled.section`
   display: grid;
   gap: 0.8rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(131, 154, 201, 0.1);
+  padding: 1.15rem 1rem;
+  border: 1px solid rgba(131, 154, 201, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.028);
 `
 
 export const BadgeGroupLabel = styled.p`
@@ -489,12 +528,12 @@ export const Badge = styled.span`
   min-height: 36px;
   padding: 0.55rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(131, 154, 201, 0.14);
+  border: 1px solid rgba(131, 154, 201, 0.18);
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(255, 255, 255, 0.02) 100%
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.03) 100%
     );
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.84rem;

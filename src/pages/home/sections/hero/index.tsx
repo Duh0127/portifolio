@@ -28,6 +28,7 @@ import {
 } from '../../styles'
 import { enterFromTop, hoverLift, reveal } from '../../utils/motion'
 import HeroSocialLinks from './components/HeroSocialLinks'
+import HeroSignals from './components/HeroSignals'
 import HeroSummaryMetrics from './components/HeroSummaryList'
 
 type HeroSectionProps = {
@@ -62,6 +63,8 @@ export default function HomeHeroSection({
             evoluir. Gosto de colaborar, ajudar o time a ganhar clareza e tomar
             decisões que continuam fazendo sentido depois da primeira entrega.
           </HeroBody>
+
+          <HeroSignals reducedMotion={reducedMotion} />
 
           <HeroActions>
             <PrimaryAction

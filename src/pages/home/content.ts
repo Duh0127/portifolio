@@ -31,16 +31,22 @@ export const socialLinks: SocialLink[] = [
 export const heroSummary = [
   {
     label: 'Foco principal',
-    value: 'Backend-first. Arquitetura, integrações, dados e entrega com clareza.',
+    value: 'Arquitetura, integrações e dados com foco em produto.',
   },
   {
     label: 'Stack de base',
-    value: 'NodeJs, NestJs, SQL, NoSQL, Python, Docker, DevOps e LLMs.',
+    value: 'NodeJs, NestJs, SQL, NoSQL, Python, Docker e LLMs.',
   },
   {
     label: 'Camada visual',
-    value: 'ReactJs e NextJs quando o produto também pede cuidado no front.',
+    value: 'ReactJs e NextJs quando a interface pede o mesmo rigor.',
   },
+]
+
+export const heroSignals = [
+  'Backend-first',
+  'Arquitetura e integrações',
+  'Dados e IA aplicada',
 ]
 
 export const aboutAreas = [

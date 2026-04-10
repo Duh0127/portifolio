@@ -2,16 +2,17 @@ import { motion } from 'motion/react'
 import styled, { css, keyframes } from 'styled-components'
 
 const panelSurface = css`
-  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  border: 1px solid rgba(144, 171, 222, 0.16);
   background:
     linear-gradient(
       180deg,
-      rgba(12, 16, 25, 0.9) 0%,
-      rgba(8, 11, 18, 0.88) 100%
+      rgba(13, 18, 29, 0.92) 0%,
+      rgba(7, 10, 18, 0.9) 100%
     );
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 24px 70px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -24px 48px rgba(1, 5, 12, 0.16);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 `
@@ -20,10 +21,12 @@ const actionBase = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0.9rem 1.2rem;
+  gap: 0.55rem;
+  min-height: 52px;
+  padding: 0.92rem 1.28rem;
   border-radius: 999px;
   font-weight: 700;
+  letter-spacing: -0.01em;
 `
 
 const orbitBorder = keyframes`
@@ -78,10 +81,11 @@ export const AmbientGrid = styled.div`
 `
 
 export const HeroSection = styled.section`
-  padding: 10rem 6.25rem 4.75rem 6.25rem;
+  padding: 9.5rem 6.25rem 5.5rem 6.25rem;
 
   @media (max-width: 720px) {
-    padding-top: 7rem;
+    padding-top: 7.25rem;
+    padding-bottom: 4.25rem;
   }
 `
 
@@ -102,21 +106,31 @@ export const HeroCopy = styled(motion.div)`
   position: relative;
   z-index: 1;
   padding-top: 1.5rem;
+  max-width: 41rem;
 `
 
 export const HeroEyebrow = styled.p`
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 2rem;
+  padding: 0.38rem 0.78rem;
+  border: 1px solid rgba(148, 176, 233, 0.14);
+  border-radius: 999px;
+  background: rgba(10, 14, 24, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   color: ${({ theme }) => theme.colors.text.muted};
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-size: 0.76rem;
+  font-size: 0.73rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 `
 
 export const HeroTitle = styled.h1`
-  max-width: 12ch;
-  margin-top: 1.1rem;
-  font-size: clamp(3rem, 7vw, 5.3rem);
-  line-height: 0.97;
+  max-width: 11ch;
+  margin-top: 1.35rem;
+  font-size: clamp(3.05rem, 7vw, 5.4rem);
+  line-height: 0.94;
   letter-spacing: -0.05em;
   text-wrap: balance;
 `
@@ -128,55 +142,96 @@ export const HeroTitleAccent = styled.span`
 `
 
 export const HeroLead = styled.p`
-  max-width: 58ch;
-  margin-top: 1.5rem;
+  max-width: 54ch;
+  margin-top: 1.65rem;
   color: ${({ theme }) => theme.colors.text.secondary};
-  font-size: clamp(1.02rem, 2vw, 1.12rem);
-  line-height: 1.82;
+  font-size: clamp(1.04rem, 2vw, 1.16rem);
+  line-height: 1.76;
 `
 
 export const HeroBody = styled.p`
-  max-width: 56ch;
-  margin-top: 1rem;
+  max-width: 54ch;
+  margin-top: 1.05rem;
   color: ${({ theme }) => theme.colors.text.muted};
   font-size: 0.98rem;
-  line-height: 1.8;
+  line-height: 1.78;
+`
+
+export const HeroSignalList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.55rem;
+`
+
+export const HeroSignalItem = styled(motion.span)`
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  padding: 0.55rem 0.82rem;
+  border-radius: 999px;
+  border: 1px solid rgba(131, 154, 201, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
+  color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: 0.84rem;
+  font-weight: 600;
 `
 
 export const HeroActions = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 2rem;
+  gap: 0.95rem;
+  margin-top: 2.2rem;
 `
 
 export const PrimaryAction = styled(motion.a)`
   ${actionBase}
-  background: ${({ theme }) => theme.colors.text.primary};
+  background:
+    linear-gradient(
+      135deg,
+      rgba(241, 246, 255, 0.98) 0%,
+      rgba(170, 197, 248, 0.96) 100%
+    );
   color: ${({ theme }) => theme.colors.text.inverse};
-  box-shadow: 0 12px 36px rgba(9, 12, 18, 0.24);
+  box-shadow:
+    0 18px 38px rgba(77, 109, 177, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.52);
 `
 
 export const SecondaryAction = styled(motion.a)`
   ${actionBase}
-  border: 1px solid ${({ theme }) => theme.colors.border.primary};
-  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(148, 176, 233, 0.16);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
   color: ${({ theme }) => theme.colors.text.primary};
 `
 
 export const SocialInlineList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  margin-top: 1.7rem;
+  gap: 0.75rem;
+  margin-top: 1.55rem;
 `
 
 export const SocialInlineLink = styled(motion.a)`
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  min-height: 2.45rem;
+  padding: 0.55rem 0.78rem;
+  border-radius: 999px;
+  border: 1px solid rgba(131, 154, 201, 0.1);
+  background: rgba(255, 255, 255, 0.025);
   color: ${({ theme }) => theme.colors.text.secondary};
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   font-weight: 600;
 
   svg {
@@ -193,7 +248,7 @@ export const SocialInlineLink = styled(motion.a)`
 
 export const HeroAside = styled(motion.aside)`
   display: grid;
-  gap: 1rem;
+  gap: 1.1rem;
 
   @media (max-width: 980px) {
     max-width: 40rem;
@@ -203,7 +258,7 @@ export const HeroAside = styled(motion.aside)`
 export const HeroPortraitCard = styled(motion.article)`
   ${panelSurface}
   position: relative;
-  border-radius: 28px;
+  border-radius: 30px;
   padding: 1rem;
   overflow: hidden;
 `
@@ -338,22 +393,30 @@ export const HeroPortraitBadge = styled.span`
 
 export const HeroPanel = styled(motion.article)`
   ${panelSurface}
-  border-radius: 28px;
-  padding: 1.6rem;
+  border-radius: 30px;
+  padding: 1.65rem;
 `
 
 export const HeroPanelKicker = styled.p`
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 2rem;
+  padding: 0.36rem 0.74rem;
+  border: 1px solid rgba(148, 176, 233, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
   color: ${({ theme }) => theme.colors.text.muted};
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-size: 0.76rem;
+  font-size: 0.73rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 `
 
 export const HeroPanelTitle = styled.h2`
   max-width: 14ch;
-  margin-top: 1rem;
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin-top: 1.05rem;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
 `
@@ -377,8 +440,8 @@ export const HeroPanelNote = styled.p`
 
 export const HeroSummaryCard = styled(motion.div)`
   ${panelSurface}
-  border-radius: 28px;
-  padding: 0.5rem 1.6rem;
+  border-radius: 30px;
+  padding: 0.8rem 1.3rem;
 `
 
 export const HeroSummaryList = styled.dl`
@@ -389,7 +452,7 @@ export const HeroSummaryItem = styled(motion.div)`
   display: grid;
   grid-template-columns: minmax(120px, 0.35fr) minmax(0, 1fr);
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 0.95rem 0;
   border-bottom: 1px solid rgba(131, 154, 201, 0.1);
 
   &:last-child {
@@ -417,7 +480,7 @@ export const HeroSummaryValue = styled.dd`
 `
 
 export const Section = styled.section`
-  padding: 0 0 10.25rem;
+  padding: 0 0 clamp(5.75rem, 9vw, 8.25rem);
 `
 
 export const SectionInner = styled.div`
@@ -427,7 +490,7 @@ export const SectionInner = styled.div`
 
 export const SectionHeading = styled(motion.div) <{ $align?: 'left' | 'center' }>`
   max-width: 42rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.35rem;
   text-align: ${({ $align = 'left' }) => $align};
 
   ${({ $align = 'left' }) =>
@@ -439,17 +502,25 @@ export const SectionHeading = styled(motion.div) <{ $align?: 'left' | 'center' }
 `
 
 export const SectionEyebrow = styled.p`
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 2rem;
+  padding: 0.38rem 0.78rem;
+  border: 1px solid rgba(148, 176, 233, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.024);
   color: ${({ theme }) => theme.colors.text.muted};
   font-family: ${({ theme }) => theme.fonts.mono};
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 `
 
 export const SectionTitle = styled.h2`
-  margin-top: 0.95rem;
-  font-size: clamp(2rem, 4.7vw, 3.5rem);
-  line-height: 1.02;
+  margin-top: 1.05rem;
+  font-size: clamp(2rem, 4.7vw, 3.35rem);
+  line-height: 1.04;
   letter-spacing: -0.05em;
   text-wrap: balance;
 `
@@ -458,7 +529,7 @@ export const SectionDescription = styled.p`
   margin-top: 1rem;
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.98rem;
-  line-height: 1.8;
+  line-height: 1.78;
 `
 
 export const AboutLayout = styled.div`
@@ -502,23 +573,47 @@ export const AboutParagraph = styled.p`
 
 export const AboutNote = styled(motion.aside)`
   ${panelSurface}
-  padding: 1.4rem;
+  position: relative;
+  padding: 1.5rem;
   border-radius: 24px;
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.95rem;
   line-height: 1.8;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    bottom: 1.2rem;
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(148, 176, 233, 0.9) 0%,
+      rgba(148, 176, 233, 0.18) 100%
+    );
+  }
+
+  padding-left: 1.85rem;
 `
 
 export const AboutAreasList = styled.div`
   border-top: 1px solid rgba(131, 154, 201, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
 `
 
 export const AboutAreaItem = styled(motion.article)`
   display: grid;
   grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1fr);
   gap: 1rem 1.5rem;
-  padding: 1.15rem 0;
+  padding: 1.2rem 1rem;
+  border-radius: 22px;
   border-bottom: 1px solid rgba(131, 154, 201, 0.12);
+  background: rgba(255, 255, 255, 0.018);
 
   @media (max-width: 720px) {
     grid-template-columns: 1fr;
@@ -538,13 +633,17 @@ export const AboutAreaText = styled.p`
 
 export const StackBoard = styled(motion.section)`
   ${panelSurface}
-  border-radius: 30px;
-  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 32px;
+  padding: clamp(1.6rem, 3vw, 2.1rem);
 `
 
 export const StackRows = styled.div`
   margin-top: 1.25rem;
   border-top: 1px solid rgba(131, 154, 201, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
 `
 
 export const StackRow = styled(motion.article)`
@@ -552,8 +651,10 @@ export const StackRow = styled(motion.article)`
   grid-template-columns: auto minmax(120px, 0.3fr) minmax(0, 0.9fr) minmax(220px, 0.8fr);
   gap: 1rem 1.2rem;
   align-items: start;
-  padding: 1.25rem 0;
+  padding: 1.25rem 1rem;
+  border-radius: 22px;
   border-bottom: 1px solid rgba(131, 154, 201, 0.12);
+  background: rgba(255, 255, 255, 0.018);
 
   @media (max-width: 920px) {
     grid-template-columns: auto 1fr;
@@ -604,9 +705,13 @@ export const StackTech = styled.span`
   align-items: center;
   min-height: 34px;
   padding: 0.5rem 0.75rem;
-  border: 1px solid rgba(131, 154, 201, 0.14);
+  border: 1px solid rgba(131, 154, 201, 0.18);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.84rem;
   font-weight: 600;
@@ -624,8 +729,8 @@ export const ApproachLayout = styled.div`
 
 export const ApproachIntro = styled(motion.article)`
   ${panelSurface}
-  padding: clamp(1.5rem, 3vw, 2rem);
-  border-radius: 28px;
+  padding: clamp(1.65rem, 3vw, 2.15rem);
+  border-radius: 30px;
 `
 
 export const ApproachLead = styled.h3`
@@ -655,14 +760,20 @@ export const ApproachNote = styled.p`
 
 export const ApproachList = styled.div`
   border-top: 1px solid rgba(131, 154, 201, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0px;
 `
 
 export const ApproachItem = styled(motion.article)`
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 1rem 1.2rem;
-  padding: 1.3rem 0;
+  padding: 1.3rem 1rem;
+  border-radius: 22px;
   border-bottom: 1px solid rgba(131, 154, 201, 0.12);
+  background: rgba(255, 255, 255, 0.018);
 
   @media (max-width: 560px) {
     grid-template-columns: 1fr;
@@ -698,8 +809,8 @@ export const ApproachItemText = styled.p`
 
 export const ContactCard = styled(motion.section)`
   ${panelSurface}
-  border-radius: 30px;
-  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 32px;
+  padding: clamp(1.7rem, 3vw, 2.25rem);
 `
 
 export const ContactGrid = styled.div`
@@ -715,9 +826,9 @@ export const ContactGrid = styled.div`
 
 export const ContactTitle = styled.h2`
   max-width: 20ch;
-  margin-top: 0.95rem;
-  font-size: clamp(2rem, 4.8vw, 3.5rem);
-  line-height: 1.02;
+  margin-top: 1.05rem;
+  font-size: clamp(2rem, 4.8vw, 3.25rem);
+  line-height: 1.05;
   letter-spacing: -0.05em;
   text-wrap: balance;
 `
@@ -740,11 +851,15 @@ export const ContactLink = styled(motion.a)`
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  min-height: 46px;
-  padding: 0.8rem 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.border.primary};
+  min-height: 48px;
+  padding: 0.82rem 1rem;
+  border: 1px solid rgba(131, 154, 201, 0.16);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: 0.92rem;
   font-weight: 700;
