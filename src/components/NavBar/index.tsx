@@ -1,6 +1,6 @@
 import { useReducedMotion } from 'motion/react'
-import { useLocation } from 'react-router-dom'
 
+import { useSectionNavigation } from '../../layout/sectionNavigation'
 import {
   Brand,
   BrandMeta,
@@ -14,17 +14,16 @@ import {
 } from './styles'
 
 const navigationItems = [
-  { label: 'Perfil', href: '/#sobre' },
-  { label: 'Projetos', href: '/#projetos' },
-  { label: 'Stack', href: '/#stacks' },
-  { label: 'Soft Skills', href: '/#soft-skills' },
-  { label: 'Contato', href: '/#contato' },
-]
+  { label: 'Perfil', href: '/#sobre', sectionId: 'sobre' },
+  { label: 'Projetos', href: '/#projetos', sectionId: 'projetos' },
+  { label: 'Stack', href: '/#stacks', sectionId: 'stacks' },
+  { label: 'Soft Skills', href: '/#soft-skills', sectionId: 'soft-skills' },
+  { label: 'Contato', href: '/#contato', sectionId: 'contato' },
+] as const
 
 const NavBar = () => {
   const prefersReducedMotion = useReducedMotion() ?? false
-  const location = useLocation()
-  const currentSectionHref = location.hash ? `/${location.hash}` : ''
+  const { activeSection } = useSectionNavigation()
 
   return (
     <HeaderContainer>
@@ -36,7 +35,7 @@ const NavBar = () => {
         })}
       >
         <HeaderContent>
-          <Brand to="/" aria-label="Voltar para o início">
+          <Brand to="/#inicio" aria-label="Voltar para o início">
             <BrandName>Eduardo Okubo</BrandName>
             <BrandMeta>Full Stack / backend-first</BrandMeta>
           </Brand>
@@ -46,7 +45,7 @@ const NavBar = () => {
               <NavAnchor
                 key={item.label}
                 href={item.href}
-                $active={location.pathname === '/' && item.href === currentSectionHref}
+                $active={item.sectionId === activeSection}
               >
                 {item.label}
               </NavAnchor>

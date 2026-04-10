@@ -29,19 +29,19 @@ type ProjectsOverviewProps = {
 
 const overviewItems = [
   {
-    label: 'Selecao',
+    label: 'Seleção',
     value: `${projects.length} projetos publicados`,
     text: 'Um recorte enxuto do que melhor representa meu jeito de construir.',
   },
   {
-    label: 'Recorte tecnico',
+    label: 'Recorte técnico',
     value: 'NestJS + IA full stack',
-    text: 'Backend como base, com frontend entrando quando a experiencia pede.',
+    text: 'Backend como base, com frontend entrando quando a experiência pede.',
   },
   {
-    label: 'Criterio',
-    value: 'Resumo apoiado no codigo',
-    text: 'Usei a descricao dos repositorios e a estrutura real de cada projeto.',
+    label: 'Critério',
+    value: 'Resumo apoiado no código',
+    text: 'Usei a descrição dos repositórios e a estrutura real de cada projeto.',
   },
 ]
 
@@ -56,17 +56,17 @@ export default function ProjectsOverview({
       <motion.div {...reveal(reducedMotion)}>
         <SectionEyebrow>Projetos</SectionEyebrow>
         <SectionTitle>
-          Casos publicados que deixam meu foco em backend visivel na pratica.
+          Casos publicados que deixam meu foco em backend visível na prática.
         </SectionTitle>
         <SectionDescription>
-          Preferi reunir poucos projetos com mais criterio, em vez de uma
+          Preferi reunir poucos projetos com mais critério, em vez de uma
           vitrine longa e superficial.
         </SectionDescription>
         <HeroBody>
-          Cada resumo abaixo parte da descricao publica do repositorio e do que
-          o codigo entrega de fato. A ideia aqui e facilitar a leitura para
-          quem quiser entender rapido como penso estrutura, integracao e
-          experiencia de uso.
+          Cada resumo abaixo parte da descrição pública do repositório e do que
+          o código entrega de fato. A ideia aqui é facilitar a leitura para
+          quem quiser entender rápido como penso estrutura, integração e
+          experiência de uso.
         </HeroBody>
 
         <HeroActions>
@@ -92,13 +92,13 @@ export default function ProjectsOverview({
 
       <HeroAside {...reveal(reducedMotion, 0.12)}>
         <OverviewCard whileHover={hoverLift(reducedMotion)}>
-          <SectionEyebrow>Leitura da secao</SectionEyebrow>
-          <OverviewTitle>Menos vitrine, mais contexto tecnico.</OverviewTitle>
+          <SectionEyebrow>Leitura da seção</SectionEyebrow>
+          <OverviewTitle>Menos vitrine, mais contexto técnico.</OverviewTitle>
           <OverviewText>
-            Prefiro apresentar poucos projetos com mais criterio do que uma
-            sequencia longa de blocos superficiais. O objetivo aqui e mostrar
-            intencao de produto, organizacao de codigo e decisoes que fazem
-            sentido para manutencao.
+            Prefiro apresentar poucos projetos com mais critério do que uma
+            sequência longa de blocos superficiais. O objetivo aqui é mostrar
+            intenção de produto, organização de código e decisões que fazem
+            sentido para manutenção.
           </OverviewText>
         </OverviewCard>
 

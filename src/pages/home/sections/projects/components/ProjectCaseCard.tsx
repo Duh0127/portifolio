@@ -49,7 +49,7 @@ export default function ProjectCaseCard({
         </ProjectRailMeta>
 
         <ProjectOfficialText>
-          <strong>Descricao do repositorio:</strong> {project.officialDescription}
+          <strong>Descrição do repositório:</strong> {project.officialDescription}
         </ProjectOfficialText>
 
         <ProjectLink
@@ -77,7 +77,7 @@ export default function ProjectCaseCard({
 
           <ProjectColumn>
             <ProjectColumnLabel>
-              Pontos mais visiveis na implementacao
+              Pontos mais visíveis na implementação
             </ProjectColumnLabel>
             <ProjectBulletList>
               {project.highlights.map((highlight) => (

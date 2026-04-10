@@ -417,7 +417,7 @@ export const HeroSummaryValue = styled.dd`
 `
 
 export const Section = styled.section`
-  padding: 0 0 6.25rem;
+  padding: 0 0 10.25rem;
 `
 
 export const SectionInner = styled.div`

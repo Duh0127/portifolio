@@ -53,7 +53,7 @@ export const aboutAreas = [
     text: 'SQL e NoSQL entram conforme o contexto pede, sempre com atenção à clareza, leitura e evolução.',
   },
   {
-    title: 'Entrega e operacao',
+    title: 'Entrega e operação',
     text: 'Docker, DevOps e boas práticas para reduzir atrito entre desenvolvimento, deploy e manutenção.',
   },
 ]
