@@ -141,10 +141,18 @@ export const HeroActions = styled.div`
   flex-wrap: wrap;
   gap: 0.95rem;
   margin-top: 2.15rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1.9rem;
+  }
 `
 
 export const PrimaryAction = styled(motion.a)`
   ${actionBase}
+  width: fit-content;
   background:
     linear-gradient(
       135deg,
@@ -155,10 +163,15 @@ export const PrimaryAction = styled(motion.a)`
   box-shadow:
     0 18px 38px rgba(77, 109, 177, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.52);
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `
 
 export const SecondaryAction = styled(motion.a)`
   ${actionBase}
+  width: fit-content;
   border: 1px solid rgba(148, 176, 233, 0.16);
   background:
     linear-gradient(
@@ -167,6 +180,10 @@ export const SecondaryAction = styled(motion.a)`
       rgba(255, 255, 255, 0.025) 100%
     );
   color: ${({ theme }) => theme.colors.text.primary};
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `
 
 export const HeroAside = styled(motion.aside)`
@@ -174,14 +191,14 @@ export const HeroAside = styled(motion.aside)`
   gap: 1rem;
 
   @media (max-width: 980px) {
-    max-width: 40rem;
+    max-width: none;
   }
 `
 
 export const OverviewCard = styled(motion.article)`
   ${panelSurface}
-  border-radius: 30px;
-  padding: 1.55rem;
+  border-radius: clamp(24px, 5vw, 30px);
+  padding: clamp(1.25rem, 4vw, 1.55rem);
 `
 
 export const OverviewTitle = styled.h2`
@@ -257,6 +274,8 @@ export const ProjectsIntroLayout = styled.div`
 
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 `
 
@@ -299,6 +318,10 @@ export const SectionDescription = styled.p`
 export const ProjectSurface = styled.div`
   display: grid;
   gap: 1.75rem;
+
+  @media (max-width: 720px) {
+    gap: 1.25rem;
+  }
 `
 
 export const ProjectCard = styled(motion.article)<{ $reverse?: boolean }>`
@@ -307,7 +330,7 @@ export const ProjectCard = styled(motion.article)<{ $reverse?: boolean }>`
   display: grid;
   grid-template-columns: minmax(250px, 0.34fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 3vw, 2.3rem);
-  border-radius: 34px;
+  border-radius: clamp(24px, 5vw, 34px);
   padding: clamp(1.35rem, 2.8vw, 2rem);
 
   &::before {
@@ -429,6 +452,11 @@ export const ProjectLink = styled(motion.a)`
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: 0.9rem;
   font-weight: 700;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    justify-content: center;
+  }
 `
 
 export const ProjectMain = styled.div<{ $reverse?: boolean }>`
@@ -441,6 +469,10 @@ export const ProjectMain = styled.div<{ $reverse?: boolean }>`
     css`
       order: 1;
     `}
+
+  @media (max-width: 720px) {
+    gap: 1.35rem;
+  }
 `
 
 export const ProjectName = styled.h3`
@@ -471,7 +503,7 @@ export const ProjectColumn = styled.div`
   gap: 0.7rem;
   padding: 1.15rem 1rem;
   border: 1px solid rgba(131, 154, 201, 0.1);
-  border-radius: 22px;
+  border-radius: clamp(18px, 4vw, 22px);
   background: rgba(255, 255, 255, 0.028);
 `
 
@@ -504,7 +536,7 @@ export const BadgeGroup = styled.section`
   gap: 0.8rem;
   padding: 1.15rem 1rem;
   border: 1px solid rgba(131, 154, 201, 0.1);
-  border-radius: 22px;
+  border-radius: clamp(18px, 4vw, 22px);
   background: rgba(255, 255, 255, 0.028);
 `
 
@@ -542,7 +574,7 @@ export const Badge = styled.span`
 
 export const ClosingCard = styled(motion.section)`
   ${panelSurface}
-  border-radius: 30px;
+  border-radius: clamp(24px, 5vw, 30px);
   padding: clamp(1.5rem, 3vw, 2rem);
 `
 
@@ -578,6 +610,11 @@ export const ClosingActions = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `
 
 export const ClosingLink = styled(motion.a)`
@@ -597,6 +634,11 @@ export const ClosingLink = styled(motion.a)`
     width: 0.95rem;
     height: 0.95rem;
     color: ${({ theme }) => theme.colors.brand.primary};
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    justify-content: center;
   }
 `
 

@@ -44,6 +44,14 @@ export const Page = styled.div`
   overflow: clip;
   padding-bottom: 3rem;
   margin-top: -95px;
+
+  @media (max-width: 920px) {
+    margin-top: -112px;
+  }
+
+  @media (max-width: 560px) {
+    margin-top: -118px;
+  }
 `
 
 export const AmbientField = styled.div`
@@ -81,11 +89,11 @@ export const AmbientGrid = styled.div`
 `
 
 export const HeroSection = styled.section`
-  padding: 9.5rem 6.25rem 5.5rem 6.25rem;
+  padding: clamp(8.35rem, 12vw, 9.5rem) 0 clamp(4.5rem, 8vw, 5.5rem);
 
   @media (max-width: 720px) {
-    padding-top: 7.25rem;
-    padding-bottom: 4.25rem;
+    padding-top: 7.6rem;
+    padding-bottom: 3.8rem;
   }
 `
 
@@ -94,19 +102,24 @@ export const HeroGrid = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
+  gap: clamp(1.6rem, 4vw, 4.5rem);
   align-items: start;
 
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 `
 
 export const HeroCopy = styled(motion.div)`
   position: relative;
   z-index: 1;
-  padding-top: 1.5rem;
+  padding-top: clamp(0.25rem, 2vw, 1.5rem);
   max-width: 41rem;
+
+  @media (max-width: 640px) {
+    padding-top: 0;
+  }
 `
 
 export const HeroEyebrow = styled.p`
@@ -133,6 +146,13 @@ export const HeroTitle = styled.h1`
   line-height: 0.94;
   letter-spacing: -0.05em;
   text-wrap: balance;
+
+  @media (max-width: 640px) {
+    max-width: 9.5ch;
+    margin-top: 1rem;
+    font-size: clamp(2.45rem, 11vw, 3.35rem);
+    line-height: 0.98;
+  }
 `
 
 export const HeroTitleAccent = styled.span`
@@ -147,6 +167,12 @@ export const HeroLead = styled.p`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: clamp(1.04rem, 2vw, 1.16rem);
   line-height: 1.76;
+
+  @media (max-width: 640px) {
+    margin-top: 1.3rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
 `
 
 export const HeroBody = styled.p`
@@ -155,6 +181,11 @@ export const HeroBody = styled.p`
   color: ${({ theme }) => theme.colors.text.muted};
   font-size: 0.98rem;
   line-height: 1.78;
+
+  @media (max-width: 640px) {
+    font-size: 0.95rem;
+    line-height: 1.72;
+  }
 `
 
 export const HeroSignalList = styled.div`
@@ -162,6 +193,11 @@ export const HeroSignalList = styled.div`
   flex-wrap: wrap;
   gap: 0.7rem;
   margin-top: 1.55rem;
+
+  @media (max-width: 640px) {
+    gap: 0.6rem;
+    margin-top: 1.35rem;
+  }
 `
 
 export const HeroSignalItem = styled(motion.span)`
@@ -179,6 +215,13 @@ export const HeroSignalItem = styled(motion.span)`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.84rem;
   font-weight: 600;
+
+  @media (max-width: 640px) {
+    flex: 1 1 180px;
+    justify-content: center;
+    padding: 0.68rem 0.85rem;
+    text-align: center;
+  }
 `
 
 export const HeroActions = styled.div`
@@ -186,10 +229,18 @@ export const HeroActions = styled.div`
   flex-wrap: wrap;
   gap: 0.95rem;
   margin-top: 2.2rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1.9rem;
+  }
 `
 
 export const PrimaryAction = styled(motion.a)`
   ${actionBase}
+  width: fit-content;
   background:
     linear-gradient(
       135deg,
@@ -200,10 +251,15 @@ export const PrimaryAction = styled(motion.a)`
   box-shadow:
     0 18px 38px rgba(77, 109, 177, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.52);
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `
 
 export const SecondaryAction = styled(motion.a)`
   ${actionBase}
+  width: fit-content;
   border: 1px solid rgba(148, 176, 233, 0.16);
   background:
     linear-gradient(
@@ -212,6 +268,10 @@ export const SecondaryAction = styled(motion.a)`
       rgba(255, 255, 255, 0.025) 100%
     );
   color: ${({ theme }) => theme.colors.text.primary};
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `
 
 export const SocialInlineList = styled.div`
@@ -219,6 +279,11 @@ export const SocialInlineList = styled.div`
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.55rem;
+
+  @media (max-width: 640px) {
+    gap: 0.65rem;
+    margin-top: 1.35rem;
+  }
 `
 
 export const SocialInlineLink = styled(motion.a)`
@@ -244,6 +309,16 @@ export const SocialInlineLink = styled(motion.a)`
   &:focus-visible {
     color: ${({ theme }) => theme.colors.text.primary};
   }
+
+  @media (max-width: 640px) {
+    flex: 1 1 calc(50% - 0.65rem);
+    justify-content: center;
+    padding: 0.68rem 0.84rem;
+  }
+
+  @media (max-width: 420px) {
+    flex-basis: 100%;
+  }
 `
 
 export const HeroAside = styled(motion.aside)`
@@ -251,22 +326,26 @@ export const HeroAside = styled(motion.aside)`
   gap: 1.1rem;
 
   @media (max-width: 980px) {
-    max-width: 40rem;
+    max-width: none;
+  }
+
+  @media (max-width: 720px) {
+    gap: 0.9rem;
   }
 `
 
 export const HeroPortraitCard = styled(motion.article)`
   ${panelSurface}
   position: relative;
-  border-radius: 30px;
-  padding: 1rem;
+  border-radius: clamp(24px, 5vw, 30px);
+  padding: clamp(0.8rem, 3vw, 1rem);
   overflow: hidden;
 `
 
 export const HeroPortraitFrame = styled.div`
   position: relative;
   aspect-ratio: 0.94;
-  border-radius: 22px;
+  border-radius: clamp(18px, 4vw, 22px);
   overflow: hidden;
   background:
     radial-gradient(
@@ -312,6 +391,9 @@ export const HeroPortraitMeta = styled.div`
   @media (max-width: 520px) {
     flex-direction: column;
     align-items: flex-start;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
   }
 `
 
@@ -389,12 +471,23 @@ export const HeroPortraitBadge = styled.span`
     line-height: 1.2;
     font-family: ${({ theme }) => theme.fonts.mono};
   }
+
+  @media (max-width: 520px) {
+    width: 100%;
+    white-space: normal;
+
+    > span {
+      width: 100%;
+      padding: 0.68rem 1rem;
+      text-align: center;
+    }
+  }
 `
 
 export const HeroPanel = styled(motion.article)`
   ${panelSurface}
-  border-radius: 30px;
-  padding: 1.65rem;
+  border-radius: clamp(24px, 5vw, 30px);
+  padding: clamp(1.25rem, 4vw, 1.65rem);
 `
 
 export const HeroPanelKicker = styled.p`
@@ -440,8 +533,8 @@ export const HeroPanelNote = styled.p`
 
 export const HeroSummaryCard = styled(motion.div)`
   ${panelSurface}
-  border-radius: 30px;
-  padding: 0.8rem 1.3rem;
+  border-radius: clamp(24px, 5vw, 30px);
+  padding: clamp(0.72rem, 3vw, 0.8rem) clamp(1rem, 4vw, 1.3rem);
 `
 
 export const HeroSummaryList = styled.dl`
@@ -461,7 +554,8 @@ export const HeroSummaryItem = styled(motion.div)`
 
   @media (max-width: 560px) {
     grid-template-columns: 1fr;
-    gap: 0.4rem;
+    gap: 0.35rem;
+    padding: 0.85rem 0;
   }
 `
 
@@ -499,6 +593,10 @@ export const SectionHeading = styled(motion.div) <{ $align?: 'left' | 'center' }
       margin-left: auto;
       margin-right: auto;
     `}
+
+  @media (max-width: 720px) {
+    margin-bottom: 1.8rem;
+  }
 `
 
 export const SectionEyebrow = styled.p`
@@ -554,6 +652,10 @@ export const AboutIntro = styled.div`
 export const AboutBodyColumn = styled.div`
   display: grid;
   gap: 2rem;
+
+  @media (max-width: 720px) {
+    gap: 1.4rem;
+  }
 `
 
 export const AboutTextBlock = styled(motion.div)`
@@ -575,7 +677,7 @@ export const AboutNote = styled(motion.aside)`
   ${panelSurface}
   position: relative;
   padding: 1.5rem;
-  border-radius: 24px;
+  border-radius: clamp(20px, 4vw, 24px);
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.95rem;
   line-height: 1.8;
@@ -596,6 +698,11 @@ export const AboutNote = styled(motion.aside)`
   }
 
   padding-left: 1.85rem;
+
+  @media (max-width: 640px) {
+    padding: 1.2rem;
+    padding-left: 1.55rem;
+  }
 `
 
 export const AboutAreasList = styled.div`
@@ -617,6 +724,8 @@ export const AboutAreaItem = styled(motion.article)`
 
   @media (max-width: 720px) {
     grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 1rem 0.9rem;
   }
 `
 
@@ -633,7 +742,7 @@ export const AboutAreaText = styled.p`
 
 export const StackBoard = styled(motion.section)`
   ${panelSurface}
-  border-radius: 32px;
+  border-radius: clamp(24px, 5vw, 32px);
   padding: clamp(1.6rem, 3vw, 2.1rem);
 `
 
@@ -644,6 +753,10 @@ export const StackRows = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 8px 0;
+
+  @media (max-width: 640px) {
+    gap: 6px;
+  }
 `
 
 export const StackRow = styled(motion.article)`
@@ -662,6 +775,8 @@ export const StackRow = styled(motion.article)`
 
   @media (max-width: 620px) {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.05rem 0.9rem;
   }
 `
 
@@ -730,7 +845,7 @@ export const ApproachLayout = styled.div`
 export const ApproachIntro = styled(motion.article)`
   ${panelSurface}
   padding: clamp(1.65rem, 3vw, 2.15rem);
-  border-radius: 30px;
+  border-radius: clamp(24px, 5vw, 30px);
 `
 
 export const ApproachLead = styled.h3`
@@ -764,6 +879,10 @@ export const ApproachList = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 8px 0px;
+
+  @media (max-width: 640px) {
+    gap: 6px;
+  }
 `
 
 export const ApproachItem = styled(motion.article)`
@@ -777,6 +896,8 @@ export const ApproachItem = styled(motion.article)`
 
   @media (max-width: 560px) {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1.1rem 0.9rem;
   }
 `
 
@@ -809,7 +930,7 @@ export const ApproachItemText = styled.p`
 
 export const ContactCard = styled(motion.section)`
   ${panelSurface}
-  border-radius: 32px;
+  border-radius: clamp(24px, 5vw, 32px);
   padding: clamp(1.7rem, 3vw, 2.25rem);
 `
 
@@ -821,6 +942,7 @@ export const ContactGrid = styled.div`
 
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 `
 
@@ -845,6 +967,11 @@ export const ContactActions = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `
 
 export const ContactLink = styled(motion.a)`
@@ -868,6 +995,11 @@ export const ContactLink = styled(motion.a)`
     width: 0.95rem;
     height: 0.95rem;
     color: ${({ theme }) => theme.colors.brand.primary};
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    justify-content: center;
   }
 `
 
@@ -913,6 +1045,12 @@ export const FooterLinks = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+
+  @media (max-width: 560px) {
+    width: 100%;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
 `
 
 export const FooterLink = styled.a`

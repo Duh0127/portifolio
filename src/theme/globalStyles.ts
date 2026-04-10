@@ -120,6 +120,12 @@ export const GlobalStyles = createGlobalStyle`
     scroll-margin-top: 7rem;
   }
 
+  @media (max-width: 920px) {
+    section[id] {
+      scroll-margin-top: 8.25rem;
+    }
+  }
+
   ul,
   ol {
     list-style: none;

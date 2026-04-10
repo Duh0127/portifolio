@@ -7,14 +7,18 @@ export const HeaderContainer = styled.header`
   top: 0;
   z-index: 30;
   padding: 0.85rem 0 0;
+
+  @media (max-width: 720px) {
+    padding-top: 0.65rem;
+  }
 `
 
 export const HeaderShell = styled(motion.div)`
-  width: min(1120px, calc(100% - 1.5rem));
+  width: min(1120px, calc(100% - clamp(0.85rem, 4vw, 1.5rem)));
   margin: 0 auto;
-  padding: 0.88rem 1.12rem;
+  padding: clamp(0.72rem, 2vw, 0.88rem) clamp(0.88rem, 2.5vw, 1.12rem);
   border: 1px solid rgba(143, 171, 223, 0.14);
-  border-radius: 24px;
+  border-radius: clamp(18px, 4vw, 24px);
   background: rgba(6, 10, 17, 0.82);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -30,8 +34,9 @@ export const HeaderContent = styled.div`
   gap: 1rem;
 
   @media (max-width: 920px) {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.85rem 0.75rem;
   }
 `
 
@@ -39,6 +44,7 @@ export const Brand = styled(Link)`
   display: inline-flex;
   flex-direction: column;
   gap: 0.1rem;
+  min-width: 0;
   color: ${({ theme }) => theme.colors.text.primary};
 `
 
@@ -46,6 +52,10 @@ export const BrandName = styled.span`
   font-size: 0.96rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+
+  @media (max-width: 560px) {
+    font-size: 0.9rem;
+  }
 `
 
 export const BrandMeta = styled.span`
@@ -53,6 +63,10 @@ export const BrandMeta = styled.span`
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+
+  @media (max-width: 560px) {
+    font-size: 0.72rem;
+  }
 `
 
 export const NavLinks = styled.nav`
@@ -63,14 +77,19 @@ export const NavLinks = styled.nav`
   min-width: 0;
 
   @media (max-width: 920px) {
+    grid-column: 1 / -1;
     justify-self: stretch;
     overflow-x: auto;
-    padding-bottom: 0.15rem;
+    padding: 0.1rem 0 0.2rem;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+
+  @media (max-width: 560px) {
+    gap: 0.18rem;
   }
 `
 
@@ -101,6 +120,16 @@ export const NavAnchor = styled.a<{ $active?: boolean }>`
     background: rgba(255, 255, 255, 0.045);
     color: ${({ theme }) => theme.colors.text.primary};
   }
+
+  @media (max-width: 920px) {
+    min-height: 38px;
+    padding: 0.68rem 0.9rem;
+  }
+
+  @media (max-width: 560px) {
+    font-size: 0.85rem;
+    padding: 0.66rem 0.82rem;
+  }
 `
 
 export const ContactButton = styled(motion.a)`
@@ -123,6 +152,12 @@ export const ContactButton = styled(motion.a)`
   box-shadow: 0 12px 24px rgba(56, 79, 130, 0.12);
 
   @media (max-width: 920px) {
-    justify-self: start;
+    justify-self: end;
+  }
+
+  @media (max-width: 560px) {
+    min-height: 40px;
+    padding: 0.76rem 0.92rem;
+    font-size: 0.86rem;
   }
 `
