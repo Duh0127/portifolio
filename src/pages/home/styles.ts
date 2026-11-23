@@ -29,6 +29,12 @@ const actionBase = css`
   letter-spacing: -0.01em;
 `
 
+const shimmer = keyframes`
+  to {
+    background-position: 220% center;
+  }
+`
+
 const orbitBorder = keyframes`
   from {
     transform: rotate(0deg);
@@ -82,9 +88,9 @@ export const AmbientGrid = styled.div`
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 96px 96px;
-  mask-image: linear-gradient(180deg, black 0%, transparent 82%);
-  opacity: 0.16;
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 75%);
+  opacity: 0.35;
   pointer-events: none;
 `
 
@@ -158,7 +164,12 @@ export const HeroTitle = styled.h1`
 export const HeroTitleAccent = styled.span`
   display: block;
   margin-top: 0.55rem;
-  color: ${({ theme }) => theme.colors.brand.primary};
+  background: linear-gradient(100deg, #7fd6ff 0%, #8b7bff 45%, #f0a6ff 70%, #7fd6ff 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ${shimmer} 7s linear infinite;
 `
 
 export const HeroLead = styled.p`
@@ -244,13 +255,22 @@ export const PrimaryAction = styled(motion.a)`
   background:
     linear-gradient(
       135deg,
-      rgba(241, 246, 255, 0.98) 0%,
-      rgba(170, 197, 248, 0.96) 100%
+      #e9f8ff 0%,
+      #9fe4ff 50%,
+      #b6a9ff 100%
     );
   color: ${({ theme }) => theme.colors.text.inverse};
   box-shadow:
-    0 18px 38px rgba(77, 109, 177, 0.22),
+    0 0 0 1px rgba(127, 214, 255, 0.4),
+    0 18px 48px rgba(94, 200, 255, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.52);
+
+  &:hover {
+    box-shadow:
+      0 0 0 1px rgba(127, 214, 255, 0.7),
+      0 22px 60px rgba(139, 123, 255, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.52);
+  }
 
   @media (max-width: 640px) {
     width: 100%;

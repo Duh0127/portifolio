@@ -1,3 +1,4 @@
+import { Scramble, Tilt } from '../../../../components/fx'
 import profileImage from '../../../../assets/edu_dev.png'
 import {
   HeroActions,
@@ -26,7 +27,7 @@ import {
   PrimaryAction,
   SecondaryAction,
 } from '../../styles'
-import { enterFromTop, hoverLift, reveal } from '../../utils/motion'
+import { enterFromTop, reveal } from '../../utils/motion'
 import HeroSocialLinks from './components/HeroSocialLinks'
 import HeroSignals from './components/HeroSignals'
 import HeroSummaryMetrics from './components/HeroSummaryList'
@@ -42,7 +43,9 @@ export default function HomeHeroSection({
     <HeroSection id="inicio">
       <HeroGrid>
         <HeroCopy {...enterFromTop(reducedMotion)}>
-          <HeroEyebrow>Full Stack Developer / backend-first</HeroEyebrow>
+          <HeroEyebrow>
+            <Scramble text="Full Stack Developer / backend-first" />
+          </HeroEyebrow>
 
           <HeroTitle>
             Backend sólido para produtos em crescimento.
@@ -88,7 +91,8 @@ export default function HomeHeroSection({
         </HeroCopy>
 
         <HeroAside {...reveal(reducedMotion, 0.12)}>
-          <HeroPortraitCard whileHover={hoverLift(reducedMotion)}>
+          <Tilt>
+          <HeroPortraitCard>
             <HeroPortraitFrame>
               <HeroPortraitImage src={profileImage} alt="Retrato de Eduardo Okubo" />
               <HeroPortraitMeta>
@@ -104,8 +108,10 @@ export default function HomeHeroSection({
               </HeroPortraitMeta>
             </HeroPortraitFrame>
           </HeroPortraitCard>
+          </Tilt>
 
-          <HeroPanel whileHover={hoverLift(reducedMotion)}>
+          <Tilt max={5}>
+          <HeroPanel>
             <HeroPanelKicker>Onde costumo atuar</HeroPanelKicker>
             <HeroPanelTitle>
               Arquitetura, integrações e dados com critério de produto.
@@ -121,6 +127,7 @@ export default function HomeHeroSection({
               disciplina de estrutura, legibilidade e coerência.
             </HeroPanelNote>
           </HeroPanel>
+          </Tilt>
 
           <HeroSummaryCard>
             <HeroSummaryMetrics reducedMotion={reducedMotion} />

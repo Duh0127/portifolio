@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 40;
   padding: 0.85rem 0 0;
 
   @media (max-width: 720px) {

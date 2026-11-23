@@ -15,16 +15,16 @@ export const colors = {
     secondary: 'rgba(208, 216, 233, 0.76)',
     muted: 'rgba(154, 165, 188, 0.58)',
     inverse: '#05070d',
-    accent: '#a3bbf4',
+    accent: '#9fe4ff',
   },
   border: {
     primary: 'rgba(131, 154, 201, 0.16)',
     strong: 'rgba(131, 154, 201, 0.28)',
   },
   brand: {
-    primary: '#94b0e9',
-    accent: '#6c88bf',
-    glow: 'rgba(98, 126, 184, 0.28)',
+    primary: '#7fd6ff',
+    accent: '#8b7bff',
+    glow: 'rgba(94, 200, 255, 0.3)',
   },
   status: {
     success: '#7ef7c4',

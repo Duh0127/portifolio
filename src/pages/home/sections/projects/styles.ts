@@ -341,9 +341,9 @@ export const ProjectCard = styled(motion.article)<{ $reverse?: boolean }>`
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(131, 154, 201, 0.18) 0%,
+      rgba(127, 214, 255, 0.45) 0%,
       rgba(131, 154, 201, 0.04) 46%,
-      rgba(131, 154, 201, 0.14) 100%
+      rgba(139, 123, 255, 0.4) 100%
     );
     mask:
       linear-gradient(#fff 0 0) content-box,

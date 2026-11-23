@@ -24,6 +24,8 @@ export const LayoutContainer = styled.div`
 `
 
 export const Content = styled.main`
+  position: relative;
+  z-index: 3;
   flex: 1;
   width: 100%;
 `

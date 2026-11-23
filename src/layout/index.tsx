@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 
 import NavBar from '../components/NavBar'
+import { GlobalEffects } from '../components/fx'
 import {
   SectionNavigationContext,
   trackedSectionIds,
@@ -146,6 +147,7 @@ const Layout = () => {
   return (
     <SectionNavigationContext.Provider value={contextValue}>
       <LayoutContainer>
+        <GlobalEffects />
         <NavBar />
         <Content>
           <Outlet />

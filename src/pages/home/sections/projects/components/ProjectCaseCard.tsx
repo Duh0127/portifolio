@@ -1,3 +1,4 @@
+import { Tilt } from '../../../../../components/fx'
 import type { ProjectEntry } from '../data'
 import {
   Badge,
@@ -20,7 +21,7 @@ import {
   ProjectTag,
   SectionDescription,
 } from '../styles'
-import { hoverLift, reveal } from '../../../utils/motion'
+import { reveal } from '../../../utils/motion'
 
 type ProjectCaseCardProps = {
   index: number
@@ -37,10 +38,10 @@ export default function ProjectCaseCard({
   const isReverse = index % 2 === 1
 
   return (
+    <Tilt max={3}>
     <ProjectCard
       $reverse={isReverse}
       {...reveal(reducedMotion, 0.08 + index * 0.08)}
-      whileHover={hoverLift(reducedMotion)}
     >
       <ProjectRail $reverse={isReverse}>
         <ProjectRailMeta>
@@ -108,5 +109,6 @@ export default function ProjectCaseCard({
         </ProjectHighlights>
       </ProjectMain>
     </ProjectCard>
+    </Tilt>
   )
 }

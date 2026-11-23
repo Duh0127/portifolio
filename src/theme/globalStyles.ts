@@ -15,6 +15,15 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.background.primary};
   }
 
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
   html,
   body,
   #root {
