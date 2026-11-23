@@ -1,3 +1,4 @@
+import { useT } from '../../../../../i18n'
 import { socialLinks } from '../../../content'
 import {
   Footer,
@@ -13,15 +14,13 @@ type HomeFooterProps = {
 }
 
 export default function HomeFooter({ currentYear }: HomeFooterProps) {
+  const t = useT()
   return (
     <Footer>
       <div>
         <FooterName>Eduardo Okubo</FooterName>
-        <FooterRole>Full Stack Developer / backend-first</FooterRole>
-        <FooterMeta>
-          Copyright {currentYear} Eduardo Okubo. Feito com foco em clareza,
-          estrutura e boa manutenção.
-        </FooterMeta>
+        <FooterRole>{t.hero.portraitRole}</FooterRole>
+        <FooterMeta>{t.contact.footer.replace('{year}', String(currentYear))}</FooterMeta>
       </div>
 
       <FooterLinks>

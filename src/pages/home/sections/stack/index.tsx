@@ -1,4 +1,5 @@
 import { Section, SectionInner, StackBoard } from '../../styles'
+import { useT } from '../../../../i18n'
 import { reveal } from '../../utils/motion'
 import SectionIntro from '../shared/SectionIntro'
 import StackRowsList from './components/StackRowsList'
@@ -10,14 +11,15 @@ type StackSectionProps = {
 export default function StackSection({
   reducedMotion,
 }: StackSectionProps) {
+  const t = useT().stack
   return (
     <Section id="stacks">
       <SectionInner>
         <StackBoard {...reveal(reducedMotion)}>
           <SectionIntro
-            eyebrow="Stack"
-            title="Tecnologia escolhida pelo problema, não pelo hype."
-            description="Estas são as combinações que mais uso no dia a dia. Em vez de espalhar badges, prefiro mostrar como cada parte entra quando o produto pede estrutura, integração e manutenção."
+            eyebrow={t.eyebrow}
+            title={t.title}
+            description={t.description}
             reducedMotion={reducedMotion}
           />
 

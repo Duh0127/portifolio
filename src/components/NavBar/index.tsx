@@ -1,6 +1,8 @@
 import { useReducedMotion } from 'motion/react'
 
+import { useT } from '../../i18n'
 import { useSectionNavigation } from '../../layout/sectionNavigation'
+import { LanguageSwitcher, PaletteButton } from '../fx'
 import {
   Brand,
   BrandMeta,
@@ -11,19 +13,21 @@ import {
   HeaderShell,
   NavAnchor,
   NavLinks,
+  NavTools,
 } from './styles'
 
 const navigationItems = [
-  { label: 'Perfil', href: '/#sobre', sectionId: 'sobre' },
-  { label: 'Projetos', href: '/#projetos', sectionId: 'projetos' },
-  { label: 'Stack', href: '/#stacks', sectionId: 'stacks' },
-  { label: 'Soft Skills', href: '/#soft-skills', sectionId: 'soft-skills' },
-  { label: 'Contato', href: '/#contato', sectionId: 'contato' },
+  { href: '/#sobre', sectionId: 'sobre' },
+  { href: '/#projetos', sectionId: 'projetos' },
+  { href: '/#stacks', sectionId: 'stacks' },
+  { href: '/#soft-skills', sectionId: 'soft-skills' },
+  { href: '/#contato', sectionId: 'contato' },
 ] as const
 
 const NavBar = () => {
   const prefersReducedMotion = useReducedMotion() ?? false
   const { activeSection } = useSectionNavigation()
+  const t = useT().nav
 
   return (
     <HeaderContainer>
@@ -35,30 +39,34 @@ const NavBar = () => {
         })}
       >
         <HeaderContent>
-          <Brand to="/#inicio" aria-label="Voltar para o início">
+          <Brand to="/#inicio" aria-label={t.home}>
             <BrandName>Eduardo Okubo</BrandName>
-            <BrandMeta>Full Stack / backend-first</BrandMeta>
+            <BrandMeta>{t.brandMeta}</BrandMeta>
           </Brand>
 
-          <NavLinks aria-label="Navegação principal">
+          <NavLinks aria-label={t.main}>
             {navigationItems.map((item) => (
               <NavAnchor
-                key={item.label}
+                key={item.sectionId}
                 href={item.href}
                 $active={item.sectionId === activeSection}
               >
-                {item.label}
+                {t.items[item.sectionId]}
               </NavAnchor>
             ))}
           </NavLinks>
 
+          <NavTools>
+          <PaletteButton />
+          <LanguageSwitcher />
           <ContactButton
             href="/#contato"
             whileHover={{ y: -1 }}
             whileTap={{ scale: 0.98 }}
           >
-            Conversar
+            {t.cta}
           </ContactButton>
+          </NavTools>
         </HeaderContent>
       </HeaderShell>
     </HeaderContainer>

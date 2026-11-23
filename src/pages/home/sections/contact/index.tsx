@@ -7,6 +7,7 @@ import {
   SectionEyebrow,
   SectionInner,
 } from '../../styles'
+import { useT } from '../../../../i18n'
 import { reveal } from '../../utils/motion'
 import ContactLinks from './components/ContactLinks'
 import HomeFooter from './components/HomeFooter'
@@ -20,23 +21,16 @@ export default function ContactSection({
   currentYear,
   reducedMotion,
 }: ContactSectionProps) {
+  const t = useT().contact
   return (
     <Section id="contato">
       <SectionInner>
         <ContactCard {...reveal(reducedMotion)}>
           <ContactGrid>
             <div>
-              <SectionEyebrow>Contato</SectionEyebrow>
-              <ContactTitle>
-                Se você tem interesse, uma ideia de projeto ou acredita que eu
-                posso contribuir no que está construindo, me chame.
-              </ContactTitle>
-              <ContactText>
-                Podemos conversar com calma sobre backend, arquitetura,
-                integrações, dados, fluxos com IA e também sobre a interface
-                quando a entrega pede uma solução mais completa, clara e bem
-                amarrada.
-              </ContactText>
+              <SectionEyebrow>{t.eyebrow}</SectionEyebrow>
+              <ContactTitle>{t.title}</ContactTitle>
+              <ContactText>{t.text}</ContactText>
             </div>
 
             <ContactLinks />

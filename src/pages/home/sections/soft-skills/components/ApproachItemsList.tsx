@@ -1,4 +1,5 @@
 import { approachItems } from '../../../content'
+import { useT } from '../../../../../i18n'
 import {
   ApproachItem,
   ApproachItemText,
@@ -15,6 +16,7 @@ type ApproachItemsListProps = {
 export default function ApproachItemsList({
   reducedMotion,
 }: ApproachItemsListProps) {
+  const labels = useT().soft.items
   return (
     <ApproachList>
       {approachItems.map((item, index) => (
@@ -25,8 +27,8 @@ export default function ApproachItemsList({
         >
           <ApproachNumber>{item.number}</ApproachNumber>
           <div>
-            <ApproachItemTitle>{item.title}</ApproachItemTitle>
-            <ApproachItemText>{item.text}</ApproachItemText>
+            <ApproachItemTitle>{labels[index].title}</ApproachItemTitle>
+            <ApproachItemText>{labels[index].text}</ApproachItemText>
           </div>
         </ApproachItem>
       ))}

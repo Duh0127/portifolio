@@ -1,5 +1,6 @@
-import { Scramble, Tilt } from '../../../../components/fx'
+import { Magnetic, Scramble, Tilt } from '../../../../components/fx'
 import profileImage from '../../../../assets/edu_dev.png'
+import { useT } from '../../../../i18n'
 import {
   HeroActions,
   HeroAside,
@@ -36,55 +37,39 @@ type HeroSectionProps = {
   reducedMotion: boolean
 }
 
-export default function HomeHeroSection({
-  reducedMotion,
-}: HeroSectionProps) {
+export default function HomeHeroSection({ reducedMotion }: HeroSectionProps) {
+  const t = useT().hero
+
   return (
     <HeroSection id="inicio">
       <HeroGrid>
         <HeroCopy {...enterFromTop(reducedMotion)}>
           <HeroEyebrow>
-            <Scramble text="Full Stack Developer / backend-first" />
+            <Scramble text={t.eyebrow} />
           </HeroEyebrow>
 
           <HeroTitle>
-            Backend sólido para produtos em crescimento.
-            <HeroTitleAccent>
-              Full stack quando a interface pede o mesmo cuidado.
-            </HeroTitleAccent>
+            {t.title}
+            <HeroTitleAccent>{t.accent}</HeroTitleAccent>
           </HeroTitle>
 
-          <HeroLead>
-            Sou Eduardo Okubo, desenvolvedor full stack com foco principal em
-            backend. Trabalho com NodeJs, NestJs, SQL, NoSQL, Python, Docker,
-            DevOps e integrações com LLMs, sem perder o rigor quando o produto
-            também precisa de ReactJs e NextJs.
-          </HeroLead>
-
-          <HeroBody>
-            Procuro manter a base técnica legível, organizada e segura para
-            evoluir. Gosto de colaborar, ajudar o time a ganhar clareza e tomar
-            decisões que continuam fazendo sentido depois da primeira entrega.
-          </HeroBody>
+          <HeroLead>{t.lead}</HeroLead>
+          <HeroBody>{t.body}</HeroBody>
 
           <HeroSignals reducedMotion={reducedMotion} />
 
           <HeroActions>
-            <PrimaryAction
-              href="/#contato"
-              whileHover={{ y: -2, scale: 1.01 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Falar sobre um projeto
-            </PrimaryAction>
+            <Magnetic>
+              <PrimaryAction href="/#contato" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                {t.primary}
+              </PrimaryAction>
+            </Magnetic>
 
-            <SecondaryAction
-              href="/#projetos"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Ver projetos publicados
-            </SecondaryAction>
+            <Magnetic>
+              <SecondaryAction href="/#projetos" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                {t.secondary}
+              </SecondaryAction>
+            </Magnetic>
           </HeroActions>
 
           <HeroSocialLinks />
@@ -92,41 +77,29 @@ export default function HomeHeroSection({
 
         <HeroAside {...reveal(reducedMotion, 0.12)}>
           <Tilt>
-          <HeroPortraitCard>
-            <HeroPortraitFrame>
-              <HeroPortraitImage src={profileImage} alt="Retrato de Eduardo Okubo" />
-              <HeroPortraitMeta>
-                <div>
-                  <HeroPortraitName>Eduardo Okubo</HeroPortraitName>
-                  <HeroPortraitRole>
-                    Full Stack Developer / backend-first
-                  </HeroPortraitRole>
-                </div>
-                <HeroPortraitBadge>
-                  <span>Disponível para projetos</span>
-                </HeroPortraitBadge>
-              </HeroPortraitMeta>
-            </HeroPortraitFrame>
-          </HeroPortraitCard>
+            <HeroPortraitCard>
+              <HeroPortraitFrame>
+                <HeroPortraitImage src={profileImage} alt={t.portraitAlt} />
+                <HeroPortraitMeta>
+                  <div>
+                    <HeroPortraitName>Eduardo Okubo</HeroPortraitName>
+                    <HeroPortraitRole>{t.portraitRole}</HeroPortraitRole>
+                  </div>
+                  <HeroPortraitBadge>
+                    <span>{t.badge}</span>
+                  </HeroPortraitBadge>
+                </HeroPortraitMeta>
+              </HeroPortraitFrame>
+            </HeroPortraitCard>
           </Tilt>
 
           <Tilt max={5}>
-          <HeroPanel>
-            <HeroPanelKicker>Onde costumo atuar</HeroPanelKicker>
-            <HeroPanelTitle>
-              Arquitetura, integrações e dados com critério de produto.
-            </HeroPanelTitle>
-            <HeroPanelText>
-              Meu interesse está menos em cenografia e mais em fazer o sistema
-              ficar claro para o time, robusto para o produto e simples de
-              manter quando a complexidade chega.
-            </HeroPanelText>
-            <HeroPanelNote>
-              Backend é o centro do meu trabalho, mas não trato a interface
-              como detalhe. Quando preciso entrar no frontend, levo a mesma
-              disciplina de estrutura, legibilidade e coerência.
-            </HeroPanelNote>
-          </HeroPanel>
+            <HeroPanel>
+              <HeroPanelKicker>{t.panelKicker}</HeroPanelKicker>
+              <HeroPanelTitle>{t.panelTitle}</HeroPanelTitle>
+              <HeroPanelText>{t.panelText}</HeroPanelText>
+              <HeroPanelNote>{t.panelNote}</HeroPanelNote>
+            </HeroPanel>
           </Tilt>
 
           <HeroSummaryCard>

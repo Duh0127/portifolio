@@ -1,4 +1,4 @@
-import { aboutAreas } from '../../../content'
+import { useT } from '../../../../../i18n'
 import { AboutAreaItem, AboutAreaText, AboutAreasList, AboutAreaTitle } from '../../../styles'
 import { reveal } from '../../../utils/motion'
 
@@ -9,11 +9,12 @@ type AboutAreasListProps = {
 export default function AboutAreas({
   reducedMotion,
 }: AboutAreasListProps) {
+  const aboutAreas = useT().about.areas
   return (
     <AboutAreasList>
       {aboutAreas.map((item, index) => (
         <AboutAreaItem
-          key={item.title}
+          key={index}
           {...reveal(reducedMotion, 0.14 + index * 0.04)}
           whileHover={reducedMotion ? undefined : { x: 4 }}
         >

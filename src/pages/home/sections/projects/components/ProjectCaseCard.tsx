@@ -1,4 +1,5 @@
 import { Tilt } from '../../../../../components/fx'
+import { useT } from '../../../../../i18n'
 import type { ProjectEntry } from '../data'
 import {
   Badge,
@@ -34,6 +35,8 @@ export default function ProjectCaseCard({
   project,
   reducedMotion,
 }: ProjectCaseCardProps) {
+  const t = useT().projects
+  const copy = t.items[index]
   const projectNumber = String(index + 1).padStart(2, '0')
   const isReverse = index % 2 === 1
 
@@ -46,11 +49,11 @@ export default function ProjectCaseCard({
       <ProjectRail $reverse={isReverse}>
         <ProjectRailMeta>
           <ProjectTag>{projectNumber}</ProjectTag>
-          <ProjectTag>{project.category}</ProjectTag>
+          <ProjectTag>{copy.category}</ProjectTag>
         </ProjectRailMeta>
 
         <ProjectOfficialText>
-          <strong>Descrição do repositório:</strong> {project.officialDescription}
+          <strong>{t.repoLabel}</strong> {copy.official}
         </ProjectOfficialText>
 
         <ProjectLink
@@ -60,28 +63,24 @@ export default function ProjectCaseCard({
           whileHover={{ x: 2 }}
           whileTap={{ scale: 0.99 }}
         >
-          Abrir projeto no GitHub
+          {t.openRepo}
         </ProjectLink>
       </ProjectRail>
 
       <ProjectMain $reverse={isReverse}>
         <ProjectName>{project.name}</ProjectName>
-        <ProjectSummary>{project.summary}</ProjectSummary>
+        <ProjectSummary>{copy.summary}</ProjectSummary>
 
         <ProjectHighlights>
           <ProjectColumn>
-            <ProjectColumnLabel>
-              O que esse projeto representa para mim
-            </ProjectColumnLabel>
-            <SectionDescription as="p">{project.significance}</SectionDescription>
+            <ProjectColumnLabel>{t.significanceLabel}</ProjectColumnLabel>
+            <SectionDescription as="p">{copy.significance}</SectionDescription>
           </ProjectColumn>
 
           <ProjectColumn>
-            <ProjectColumnLabel>
-              Pontos mais visíveis na implementação
-            </ProjectColumnLabel>
+            <ProjectColumnLabel>{t.highlightsLabel}</ProjectColumnLabel>
             <ProjectBulletList>
-              {project.highlights.map((highlight) => (
+              {copy.highlights.map((highlight) => (
                 <ProjectBullet key={highlight}>{highlight}</ProjectBullet>
               ))}
             </ProjectBulletList>
@@ -90,7 +89,7 @@ export default function ProjectCaseCard({
 
         <ProjectHighlights>
           <BadgeGroup>
-            <BadgeGroupLabel>Stack</BadgeGroupLabel>
+            <BadgeGroupLabel>{t.stackLabel}</BadgeGroupLabel>
             <BadgeList>
               {project.stack.map((item) => (
                 <Badge key={item}>{item}</Badge>
@@ -99,9 +98,9 @@ export default function ProjectCaseCard({
           </BadgeGroup>
 
           <BadgeGroup>
-            <BadgeGroupLabel>Conceitos aplicados</BadgeGroupLabel>
+            <BadgeGroupLabel>{t.conceptsLabel}</BadgeGroupLabel>
             <BadgeList>
-              {project.concepts.map((item) => (
+              {copy.concepts.map((item) => (
                 <Badge key={item}>{item}</Badge>
               ))}
             </BadgeList>

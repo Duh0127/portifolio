@@ -1,4 +1,4 @@
-import { heroSummary } from '../../../content'
+import { useT } from '../../../../../i18n'
 import { HeroSummaryItem, HeroSummaryLabel, HeroSummaryList, HeroSummaryValue } from '../../../styles'
 import { reveal } from '../../../utils/motion'
 
@@ -9,11 +9,12 @@ type HeroSummaryListProps = {
 export default function HeroSummaryMetrics({
   reducedMotion,
 }: HeroSummaryListProps) {
+  const heroSummary = useT().hero.summary
   return (
     <HeroSummaryList>
       {heroSummary.map((item, index) => (
         <HeroSummaryItem
-          key={item.label}
+          key={index}
           {...reveal(reducedMotion, 0.18 + index * 0.05)}
         >
           <HeroSummaryLabel>{item.label}</HeroSummaryLabel>

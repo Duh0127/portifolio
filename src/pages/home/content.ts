@@ -70,21 +70,21 @@ export const stackGroups = [
     name: 'Interface',
     description:
       'Uso ReactJs e NextJs quando a experiência precisa acompanhar o mesmo rigor aplicado ao backend.',
-    technologies: ['ReactJs', 'NextJs'],
+    technologies: ['React', 'Next.js', 'SAPUI5'],
   },
   {
     index: '02',
     name: 'Aplicação e serviços',
     description:
       'NodeJs e NestJs para estruturar APIs, regras de negócio, integrações e módulos com mais previsibilidade.',
-    technologies: ['NodeJs', 'NestJs'],
+    technologies: ['Node.js', 'NestJS', 'SAP CAP'],
   },
   {
     index: '03',
     name: 'Dados',
     description:
       'SQL e NoSQL entram com critério de modelagem, consulta e manutenção, sem empilhar tecnologia por moda.',
-    technologies: ['SQL', 'NoSQL'],
+    technologies: ['SQL', 'NoSQL', 'CDS'],
   },
   {
     index: '04',
@@ -98,7 +98,7 @@ export const stackGroups = [
     name: 'Infra e entrega',
     description:
       'Docker e DevOps para ambientes repetíveis, deploys mais tranquilos e menos surpresa no caminho.',
-    technologies: ['Docker', 'DevOps'],
+    technologies: ['Docker', 'GitHub Actions', 'Cloud Foundry'],
   },
 ]
 

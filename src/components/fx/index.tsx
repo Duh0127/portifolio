@@ -11,12 +11,18 @@ import {
 import { lazy, Suspense, useEffect, useRef, type PointerEvent, type ReactNode } from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import { useApp } from '../../i18n'
+import { CommandPalette, LanguageTransition } from './interactive'
+
+export { CommandPalette, LanguageSwitcher, LanguageTransition, Magnetic, PaletteButton } from './interactive'
+
 const Scene3D = lazy(() => import('./Scene3D'))
 
 /* ---------- Global layer: 3D scene, scroll progress, cursor glow, smooth scroll ---------- */
 
 export function GlobalEffects() {
   const reduced = useReducedMotion() ?? false
+  const { sceneOn } = useApp()
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30 })
   const sceneOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [1, 0.55, 0.35])
@@ -46,7 +52,7 @@ export function GlobalEffects() {
   return (
     <>
       <ProgressBar style={{ scaleX: progress }} />
-      {!reduced && (
+      {!reduced && sceneOn && (
         <SceneLayer style={{ opacity: sceneOpacity }} aria-hidden="true">
           <Suspense fallback={null}>
             <Scene3D />
@@ -55,6 +61,8 @@ export function GlobalEffects() {
       )}
       {!reduced && <CursorGlow style={{ background: glow }} aria-hidden="true" />}
       <Noise aria-hidden="true" />
+      <LanguageTransition />
+      <CommandPalette />
     </>
   )
 }
@@ -157,9 +165,10 @@ const slide = keyframes`
 `
 
 export function Marquee({ items }: { items: string[] }) {
+  const { t } = useApp()
   const doubled = [...items, ...items]
   return (
-    <MarqueeWrap aria-label="Tecnologias">
+    <MarqueeWrap aria-label={t.marquee}>
       <MarqueeTrack>
         {doubled.map((item, i) => (
           <MarqueeItem key={i} aria-hidden={i >= items.length}>

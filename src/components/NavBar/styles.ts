@@ -161,3 +161,18 @@ export const ContactButton = styled(motion.a)`
     font-size: 0.86rem;
   }
 `
+
+export const NavTools = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 0.5rem;
+
+  @media (max-width: 560px) {
+    gap: 0.35rem;
+
+    > a {
+      display: none;
+    }
+  }
+`
